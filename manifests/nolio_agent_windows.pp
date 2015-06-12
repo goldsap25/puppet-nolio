@@ -68,6 +68,7 @@ define nolio::nolio_agent_windows (
     source  => "${src_dir}\\${real_package_name}",
     install_options => ['-q', '-varfile', "${src_dir}\\agent.silent.varfile"],
     require => File["${src_dir}\\agent.silent.varfile"],
+    creates => "${install_dir}",
   }->
 
   service { $service_name:
